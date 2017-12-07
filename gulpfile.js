@@ -25,10 +25,10 @@ var path = {
         css: 'build/css/',
         img: 'build/img/',
         fonts: 'build/fonts/',
-        jquery: 'build/js/',
-        bootstrap_js: 'build/js/',
-        bootstrap_css: 'build/css/',
-        tether: 'build/js/'
+        jquery: 'build/js/libs/',
+        bootstrap_js: 'build/js/libs/',
+        bootstrap_css: 'build/css/libs/',
+        tether: 'build/js/libs/'
     },
     src: {
         html: 'src/templates/index.html',
@@ -80,21 +80,21 @@ gulp.task('jquery:build', function () {
     gulp.src(path.src.jquery)
         .pipe(concat("jquery.js"))
         .pipe(uglify())
-        .pipe(gulp.dest(path.build.js))
+        .pipe(gulp.dest(path.build.jquery))
         .pipe(reload({stream: true}));
 });
 gulp.task('tether:build', function () {
     gulp.src(path.src.tether)
         .pipe(concat("tether.js"))
         .pipe(uglify())
-        .pipe(gulp.dest(path.build.js))
+        .pipe(gulp.dest(path.build.tether))
         .pipe(reload({stream: true}));
 });
 gulp.task('bootstrap_js:build', function () {
     gulp.src(path.src.bootstrap_js)
         .pipe(concat("bootstrap.js"))
         .pipe(uglify())
-        .pipe(gulp.dest(path.build.js))
+        .pipe(gulp.dest(path.build.bootstrap_js))
         .pipe(reload({stream: true}));
 });
 gulp.task('style:build', function () {
@@ -113,7 +113,7 @@ gulp.task('bootstrap_css:build', function () {
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(concatCss("bootstrap.css"))
         .pipe(cssmin())
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.build.bootstrap_css))
         .pipe(reload({stream: true}));
 });
 gulp.task('image:build', function () {
