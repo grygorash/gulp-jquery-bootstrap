@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
     prefixer = require('gulp-autoprefixer'),
@@ -15,7 +14,6 @@ var gulp = require('gulp'),
     rigger = require('gulp-rigger'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
-    npmDist = require('gulp-npm-dist'),
     reload = browserSync.reload;
 
 var path = {
@@ -54,9 +52,9 @@ var config = {
     server: {
         baseDir: "./build/"
     },
-    tunnel: true,
+    // tunnel: false,
     host: 'localhost',
-    port: 7000,
+    port: 3000,
     logPrefix: "test"
 };
 
